@@ -9,12 +9,10 @@ if($mysqli->connect_errno) {
 }
 $username = $_POST["user"];
 $password = $_POST["pass"];
-echo "<br>" . $username . $password . "<br>";
 
 $query = "SELECT * FROM Users WHERE user_id='$username'";
 
 $result = $mysqli->query($query);
-echo "count: " . $result->num_rows . "<br>";
 
 if($result->num_rows > 0) {
   echo "Sorry, username is already taken!";
