@@ -1,4 +1,4 @@
 Lab 05 Repository
-  Exercise 1:
+  The Basic Message Board
 
 Dalton Yoder
