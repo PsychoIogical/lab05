@@ -20,8 +20,8 @@ if($result->num_rows > 0) {
   echo "Sorry, username is already taken!";
 } else {
   $newEntry = "INSERT INTO Users (user_id, user_pass)
-             VALUES ('$username', '$password);";
-  $newDB = $mysqli->query($newEntry);
+             VALUES ('$username', '$password')";
+  $mysqli->query($newEntry);
 
   echo "Username " . $username . " has been accepted!<br>";
 }
