@@ -13,17 +13,20 @@ echo "<br>" . $username . $password . "<br>";
 
 $query = "SELECT * FROM Users WHERE user_id='$username'";
 
-$result = mysqli_query($mysqli, $query);
-$count = mysql_num_rows($result);
-if($count > 0) {
+$result = $mysqli->query($query);
+echo "count: " . $result->num_rows . "<br>";
+
+if($result->num_rows > 0) {
   echo "Sorry, username is already taken!";
 } else {
   $newEntry = "INSERT INTO Users (user_id, user_pass)
              VALUES ('$username', '$password);";
-  $newDB = mysqli_query($mysqli, $newEntry);
+  $newDB = $mysqli->query($newEntry);
+
+  echo "Username " . $username . " has been accepted!<br>";
 }
 
-echo "Username " . $username . " has been accepted!<br>";
+echo "<a href=\"CreateUser.html\"> Go Back</a>";
 
 $mysqli->close();
  ?>
