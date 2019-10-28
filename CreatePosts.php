@@ -11,7 +11,7 @@ $username = $_POST["user"];
 $mypost = $_POST["textpost"];
 
 $userQuery = "SELECT * FROM Users WHERE user_id='$username'";
-$userResult = $mysqli->query($query);
+$userResults = $mysqli->query($query);
 
 if($userResults->num_rows == 0) {
   echo "Sorry, that account does not exist!<br>";

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>The Fence Post</title>
+</head>
+<body>
+  <form action="DeletePost.php" name="deletePost" method="post">
+  <table>
+    <tr>
+      <th>Delete?</th>
+      <th>Author</th>
+      <th>Post</th>
+    </tr>
+    <?php
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "dyoder97", "partytime", "dyoder97");
+
+    $query = "SELECT user_id, my_post FROM Posts";
+    $result = $mysqli->query($query);
+
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td> <input type=\"checkbox\" name=\"list[]\" value=\"$row["post_id"]\"></input></td>";
+        echo "<td>" . $row["user_id"] . "</td>";
+        echo "<td>" . $row["my_post"] . "</td>";
+        echo "</tr>";
+      }
+    } else {
+      echo "0 posts<br>";
+    }
+
+    $mysqli->close();
+    ?>
+  </table>
+  </form>
+</body>
+</html>

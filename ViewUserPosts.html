@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>The Fence Post</title>
+</head>
+<body>
+<p>Which user's posts would you like to see?</p>
+<form name="userSearch" action="ViewUserPosts.php" method="post">
+  <select name="userSelect" id="userSelect">
+    <?php
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "dyoder97", "partytime", "dyoder97");
+
+    $query = "SELECT user_id FROM Users";
+    $result = $mysqli->query($query);
+
+    while($row = $result->fetch_assoc()) {
+      echo "<option value=\"$row["user_id"]\">" . $row["user_id"] . "</option>";
+    }
+
+    $mysqli->close();
+    ?>
+  </select>
+  <input type="submit" value="Search">
+</form>
+</body>
+</html>
