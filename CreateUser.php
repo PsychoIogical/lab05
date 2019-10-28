@@ -23,7 +23,7 @@ if($result->num_rows > 0) {
   $mysqli->query($newEntry);
 
   echo "Username " . $username . " has been accepted!<br><br>";
-  echo "<a href=\"CreatePost.html\">Go create a new post!</a>";
+  echo "<a href=\"CreatePosts.html\">Go create a new post!</a>";
 }
 
 
