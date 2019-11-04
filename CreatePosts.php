@@ -8,6 +8,7 @@ if($mysqli->connect_errno) {
   printf("Connection failed: %s\n", $mysqli->connect_error);
   exit();
 }
+
 $username = $_POST["user"];
 $mypost = $_POST["textpost"];
 
@@ -22,7 +23,7 @@ if($userResults->num_rows == 0) {
   $newPost = "INSERT INTO Posts (my_post, user_id)
               VALUES ('$mypost', '$username')";
   $mysqli->query($newPost);
-  echo "Post Created, <a href\"CreatePosts.html\">go back</a> to see it!<br>";
+  echo "Post Created, <a href=\"CreatePosts.html\">go back</a> to see it!<br>";
 }
 
 $mysqli->close();
