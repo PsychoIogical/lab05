@@ -16,5 +16,20 @@
 </form>
 <br>
 <p>New User? Go <a href="CreateUser.html">here</a> to create an account with us!</p>
+<br>
+<h3>---User Posts---</h3>
+<?php
+$mysqli = new mysqli("mysql.eecs.ku.edu", "dyoder97", "partytime", "dyoder97");
+
+$query = "SELECT * FROM Posts";
+$result = $mysqli->query($query);
+
+while($row = $result->fetch_assoc()) {
+  echo "Poster: " . $row["user_id"] . " Post ID: " . $row["post_id"] . "<br>";
+  echo "Post: " . $row["my_post"] . "<br><br>";
+}
+
+$mysqli->close();
+?>
 </body>
 </html>
