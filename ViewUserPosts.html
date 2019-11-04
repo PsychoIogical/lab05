@@ -16,7 +16,7 @@
     $result = $mysqli->query($query);
 
     while($row = $result->fetch_assoc()) {
-      echo "<option value=\"$row["user_id"]\">" . $row["user_id"] . "</option>";
+      echo "<option value=\"" . $row["user_id"] . "\">" . $row["user_id"] . "</option>";
     }
 
     $mysqli->close();
