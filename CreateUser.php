@@ -11,7 +11,6 @@ $username = $_POST["user"];
 $password = $_POST["pass"];
 
 $query = "SELECT * FROM Users WHERE user_id='$username'";
-
 $result = $mysqli->query($query);
 
 if($result->num_rows > 0) {
@@ -25,7 +24,6 @@ if($result->num_rows > 0) {
   echo "Username " . $username . " has been accepted!<br><br>";
   echo "<a href=\"CreatePosts.html\">Go create a new post!</a>";
 }
-
 
 $mysqli->close();
  ?>
