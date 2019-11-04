@@ -8,7 +8,6 @@ if($mysqli->connect_errno) {
   exit();
 }
 $username = $_POST["user"];
-$password = $_POST["pass"];
 
 $query = "SELECT * FROM Users WHERE user_id='$username'";
 $result = $mysqli->query($query);
@@ -17,8 +16,8 @@ if($result->num_rows > 0) {
   echo "Sorry, username is already taken!<br><br>";
   echo "<a href=\"CreateUser.html\">Go Back</a>";
 } else {
-  $newEntry = "INSERT INTO Users (user_id, user_pass)
-             VALUES ('$username', '$password')";
+  $newEntry = "INSERT INTO Users (user_id)
+             VALUES ('$username')";
   $mysqli->query($newEntry);
 
   echo "Username " . $username . " has been accepted!<br><br>";
