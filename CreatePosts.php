@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dyoder97", "partytime", "dyoder97");
 
 //Check Connection
@@ -11,7 +12,7 @@ $username = $_POST["user"];
 $mypost = $_POST["textpost"];
 
 $userQuery = "SELECT * FROM Users WHERE user_id='$username'";
-$userResults = $mysqli->query($query);
+$userResults = $mysqli->query($userQuery);
 
 if($userResults->num_rows == 0) {
   echo "Sorry, that account does not exist!<br>";
