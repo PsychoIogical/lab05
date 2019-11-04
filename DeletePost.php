@@ -11,10 +11,13 @@ if($mysqli->connect_errno) {
 $postQuery = "SELECT * FROM Posts";
 $postResults = $mysqli->query($postQuery);
 
-foreach($_POST["list"] as $selected) {
+foreach($_POST['list'] as $selected) {
+  echo "You selected: " . $selected . "<br>";
   $del = "DELETE FROM Posts WHERE post_id='$selected'";
+  $delResults = $mysqli->query($del);
 }
 echo "Posts deleted.<br>";
+echo "Head <a href=\"AdminHome.html\">back</a> to Admin Home.<br>";
 
 $mysqli->close();
  ?>

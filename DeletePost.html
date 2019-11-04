@@ -10,19 +10,21 @@
   <table>
     <tr>
       <th>Delete?</th>
+      <th>Post ID</th>
       <th>Author</th>
       <th>Post</th>
     </tr>
     <?php
     $mysqli = new mysqli("mysql.eecs.ku.edu", "dyoder97", "partytime", "dyoder97");
 
-    $query = "SELECT user_id, my_post FROM Posts";
+    $query = "SELECT * FROM Posts";
     $result = $mysqli->query($query);
 
     if($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td> <input type=\"checkbox\" name=\"list[]\" value=\"$row["post_id"]\"></input></td>";
+        echo "<td> <input type=\"checkbox\" name=\"list[]\" value=\"" . $row["post_id"] . "\"></input></td>";
+        echo "<td>" . $row["post_id"] . "</td>";
         echo "<td>" . $row["user_id"] . "</td>";
         echo "<td>" . $row["my_post"] . "</td>";
         echo "</tr>";
@@ -34,6 +36,7 @@
     $mysqli->close();
     ?>
   </table>
+  <input type="submit" value="Delete Selected Posts">
   </form>
 </body>
 </html>
